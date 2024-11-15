@@ -1,5 +1,6 @@
-import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
+import Image from "next/image"
+import heroImage from './flower-shop.jpg'
 
 const Hero = () => {
   return (
@@ -8,27 +9,30 @@ const Hero = () => {
         <span>
           <Heading
             level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
+            className="text-3xl leading-10 text-ui-fg-base font-normal bg-rose-50 text-rose-900 px-2"
           >
-            Ecommerce Starter Template
-          </Heading>
-          <Heading
-            level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
-          >
-            Powered by Medusa and Next.js
+            Make every day special with Boutique Camellia
           </Heading>
         </span>
         <a
-          href="https://github.com/medusajs/nextjs-starter-medusa"
-          target="_blank"
+          href="/store"
         >
-          <Button variant="secondary">
-            View on GitHub
-            <Github />
+          <Button variant="secondary" size="xlarge" className="bg-rose-900 text-white p-4 uppercase hover:bg-rose-500 border-rose-900">
+            view flowers
           </Button>
         </a>
       </div>
+      <Image
+          src={heroImage}
+          fill
+          loading="eager"
+          priority={true}
+          quality={65}
+          alt="flower-shop"
+          className="absolute inset-0"
+          draggable="false"
+          style={{objectFit: "cover"}}
+      />
     </div>
   )
 }
