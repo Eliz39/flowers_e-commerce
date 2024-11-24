@@ -26,6 +26,9 @@ Remove volume with database
 
 Create backup postgres --- edit according real credentials
 ```
+docker exec -t <container_name> pg_dump -U <username> <database_name> > backup.sql
+show container_name with docker ps, username na database_name are in .env file
+ 
 docker run --rm -v $(pwd):/backups -e PGPASSWORD=mysecret postgres:12 pg_dump -h db.example.com -p 5432 -U dbuser -d mydb -F p -b -v -f /backups/backup.sql
 
 
