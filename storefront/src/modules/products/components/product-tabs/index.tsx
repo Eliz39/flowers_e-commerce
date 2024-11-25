@@ -1,11 +1,12 @@
 "use client"
 
-import Back from "@modules/common/icons/back"
-import FastDelivery from "@modules/common/icons/fast-delivery"
-import Refresh from "@modules/common/icons/refresh"
-
 import Accordion from "./accordion"
+
 import { HttpTypes } from "@medusajs/types"
+
+import FastDelivery from "@modules/common/icons/fast-delivery"
+import Euro from "@modules/common/icons/euro";
+import Time from "@modules/common/icons/time";
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
@@ -13,12 +14,12 @@ type ProductTabsProps = {
 
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
+    // {
+    //   label: "Product Information",
+    //   component: <ProductInfoTab product={product} />,
+    // },
     {
-      label: "Product Information",
-      component: <ProductInfoTab product={product} />,
-    },
-    {
-      label: "Shipping & Returns",
+      label: "Shipping details",
       component: <ShippingInfoTab />,
     },
   ]
@@ -87,30 +88,30 @@ const ShippingInfoTab = () => {
           <div>
             <span className="font-semibold">Fast delivery</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
+              After ordering a bouquet, it takes just few hours and the bouquet is delivered right to the recipient´s hands.
+              You can add a notice about the desired delivery time. Please make sure that the recipient of the bouquet is at the place of delivery and your surprise will be perfect.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
-          <Refresh />
+          <Euro />
           <div>
-            <span className="font-semibold">Simple exchanges</span>
-            <p className="max-w-sm">
-              Is the fit not quite right? No worries - we&apos;ll exchange your
-              product for a new one.
-            </p>
+            <span className="font-semibold">Delivery costs</span>
+            <ul className="max-w-sm">
+              <li>working days delivery: €10</li>
+              <li>delivery on Saturday, Sunday: €12</li>
+              <li>redelivery (in the case of recipient absence): €10</li>
+            </ul>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
-          <Back />
+          <Time />
           <div>
-            <span className="font-semibold">Easy returns</span>
-            <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
-            </p>
+            <span className="font-semibold">Delivery times of bouquets</span>
+            <ul className="max-w-sm">
+              <li>on weekdays between 7.00 - 20.00</li>
+              <li>on Saturday and Sunday between 9.00 - 20.00</li>
+            </ul>
           </div>
         </div>
       </div>
